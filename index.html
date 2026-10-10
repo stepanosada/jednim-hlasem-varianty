@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Jedním hlasem – Homepage (varianty)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="home" data-footer-tail="paper">
+  <div id="site-header"></div>
+  <main>
+    <!-- A: věrně podle Figmy -->
+    <div class="variant" data-variant="a" data-name="Podle Figmy" data-desc="Návrh z Figmy: slider v hero, pás Antisemitismus, 6 karet výběru, rubriky jako pilulky se stránkováním, kampaň GenoLIE.">
+      <section class="home-hero tail" data-slider aria-roledescription="carousel" aria-label="Hlavní témata"></section>
+      <section class="band tail">
+        <div class="container">
+          <div>
+            <p class="kicker">Klíčové téma</p>
+            <h2>Antisemitismus</h2>
+            <p>Nová podoba starých předsudků – jak ji poznat, pojmenovat a věcně vyvracet.</p>
+          </div>
+          <div class="actions">
+            <a class="btn btn--white" href="antisemitismus.html">Číst k tématu</a>
+            <a class="btn btn--red" href="nahlasit-incident.html">Nahlaste incident</a>
+          </div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="grid grid--3" data-slot="a-featured"></div>
+          <div class="home-tabs" data-tabs="a"></div>
+        </div>
+      </section>
+      <section class="section section--paper section--tight"><div class="container" data-slot="campaign"></div></section>
+    </div>
+
+    <!-- B: magazín -->
+    <div class="variant" data-variant="b" data-name="Magazín" data-desc="Zpravodajské rozvržení: hlavní článek + nejnovější vedle, pak rubriky po řádcích (Češi a Izrael, Deník DL, Studie), výzva k podpoře a newsletter.">
+      <section class="section mag-top">
+        <div class="container mag-grid" data-slot="b-lead"></div>
+      </section>
+      <section class="band">
+        <div class="container">
+          <div>
+            <p class="kicker">Klíčové téma</p>
+            <h2>Antisemitismus</h2>
+            <p>Nová podoba starých předsudků – jak ji poznat, pojmenovat a věcně vyvracet.</p>
+          </div>
+          <div class="actions">
+            <a class="btn btn--white" href="antisemitismus.html">Číst k tématu</a>
+            <a class="btn btn--red" href="nahlasit-incident.html">Nahlaste incident</a>
+          </div>
+        </div>
+      </section>
+      <div data-slot="b-rows"></div>
+      <section class="section section--tight"><div class="container">
+        <div data-slot="support"></div>
+        <div style="margin-top:28px" data-slot="newsletter"></div>
+      </div></section>
+      <section class="section section--paper section--tight"><div class="container" data-slot="campaign"></div></section>
+    </div>
+
+    <!-- C: témata a akce -->
+    <div class="variant" data-variant="c" data-name="Témata a akce" data-desc="Statický hero s posláním a hledáním, 4 rozcestníky (číst, téma, nahlásit, podpořit), nejnovější, mřížka témat s fotkami, sloupek DL a newsletter.">
+      <section class="photo-hero c-home-hero tail">
+        <img class="bg" src="assets/hero/o-nas-v2.webp" alt="" style="object-position:64% 52%">
+        <div class="container">
+          <p class="kicker">Jedním hlasem · Pro Izrael</p>
+          <h1 class="h1">Do debaty o&nbsp;Izraeli vracíme fakta, kontext a&nbsp;klidný tón.</h1>
+          <form class="big-search" action="clanky.html" role="search">
+            <label class="sr-only" for="c-q">Hledat v článcích</label>
+            <input id="c-q" name="q" placeholder="Hledat mezi 278 články…" autocomplete="off">
+            <button class="btn btn--gold" type="submit">Hledat</button>
+          </form>
+          <div class="pills hero-chips" data-slot="c-chips"></div>
+        </div>
+      </section>
+      <section class="container tiles-wrap">
+        <div class="tiles">
+          <a class="tile" href="clanky.html"><span class="kicker">Číst</span><b>Články a analýzy</b><span>278 textů o Izraeli, médiích a dezinformacích</span></a>
+          <a class="tile" href="antisemitismus.html"><span class="kicker">Klíčové téma</span><b>Antisemitismus</b><span>Jak ho poznat a odlišit od kritiky</span></a>
+          <a class="tile tile--red" href="nahlasit-incident.html"><span class="kicker">Dokumentujeme</span><b>Nahlaste incident</b><span>Každé nahlášení má smysl</span></a>
+          <a class="tile tile--gold" href="podporte-nas.html"><span class="kicker">Nezávislí</span><b>Podpořte nás</b><span>Bez grantů a reklam, jen díky vám</span></a>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="section-head"><h2 class="h2">Nejnovější</h2><a class="link-arrow" href="clanky.html">Všechny články</a></div>
+          <div class="latest" data-slot="c-latest"></div>
+        </div>
+      </section>
+      <section class="section section--ice tail">
+        <div class="container">
+          <div class="section-head"><div><h2 class="h2">O čem mluvíme</h2><p>Osy, které nás vedou. Každá vede na článek, který téma otevírá.</p></div></div>
+          <div class="topics" data-slot="c-topics"></div>
+        </div>
+      </section>
+      <section class="section">
+        <div class="container">
+          <div class="column-strip" data-slot="c-column"></div>
+          <div style="margin-top:clamp(40px,5vw,72px)" data-slot="newsletter-light"></div>
+        </div>
+      </section>
+      <section class="section section--paper section--tight"><div class="container" data-slot="campaign"></div></section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="data/data.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

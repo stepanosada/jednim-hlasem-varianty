@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Články – Jedním hlasem (varianty)</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body data-page="clanky">
+  <div id="site-header"></div>
+  <main>
+    <div class="variant" data-variant="a" data-name="Mřížka" data-desc="Stejný jazyk jako homepage: rubriky jako pilulky, hledání, mřížka 3 karet s fotkou a stránkování. Filtr tagu nebo autora jde zrušit jedním klikem.">
+      <section class="section list-head">
+        <div class="container">
+          <p class="kicker kicker--blue">Texty</p>
+          <h1 class="h2" style="margin-top:8px">Články</h1>
+          <p class="lead muted" style="margin-top:12px;max-width:40em">Studie, analýzy, komentáře a české příběhy o Izraeli, antisemitismu a médiích.</p>
+          <div class="list-tools" data-tools></div>
+          <div data-results></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="variant" data-variant="b" data-name="Archiv s filtrem" data-desc="Pro čtenáře, kteří hledají: boční panel s hledáním, rubrikami, tématy a autory, vpravo řádkový seznam s počtem výsledků a řazením.">
+      <section class="section list-head">
+        <div class="container">
+          <h1 class="h2">Archiv článků</h1>
+          <div class="archive" style="margin-top:32px">
+            <aside class="archive-side" data-side></aside>
+            <div data-results></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="variant" data-variant="c" data-name="Magazínový proud" data-desc="Modrý úvod s velkým hledáním, lepivá lišta rubrik, nahoře 3 zvýrazněné texty a pod nimi textové karty s tlačítkem „Načíst další“ místo stránek.">
+      <section class="section--blue tail stream-hero">
+        <div class="container">
+          <p class="kicker">Texty</p>
+          <h1 class="h1" style="margin-top:12px">Fakta a kontext. 278 článků.</h1>
+          <form class="big-search" data-search>
+            <label class="sr-only" for="c-search">Hledat</label>
+            <input id="c-search" name="q" placeholder="Hledat podle názvu, tématu nebo autora…" autocomplete="off">
+            <button class="btn btn--gold" type="submit">Hledat</button>
+          </form>
+        </div>
+      </section>
+      <div class="sticky-pills"><div class="container" data-tools></div></div>
+      <section class="section" style="padding-top:40px">
+        <div class="container" data-results></div>
+      </section>
+    </div>
+  </main>
+  <div id="site-footer"></div>
+  <script src="data/data.js"></script>
+  <script src="js/content.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/clanky.js"></script>
+</body>
+</html>
