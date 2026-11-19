@@ -71,6 +71,7 @@
   $("hdr").innerHTML = `
     <div class="hdr__bar"><div class="hdr__in">
       <a class="hdr__logo" href="#" aria-label="Jedním hlasem"><img src="img/logo.png" alt="Jedním hlasem"></a>
+      <label class="search search--bar"><input type="search" placeholder="Vyhledat" aria-label="Vyhledat"><i class="ph ph-magnifying-glass"></i></label>
       <a class="pill" href="#">Podpořte nás</a>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><i class="ph ph-list"></i></button>
     </div></div>
@@ -81,7 +82,7 @@
           ${n.sub ? `<div class="sub${n.wide ? " sub--wide" : ""}">${n.sub.map((s) => `<a href="#">${s}</a>`).join("")}</div>` : ""}
         </li>`).join("")}
       </ul>
-      <label class="search"><input type="search" placeholder="Vyhledat"><i class="ph ph-magnifying-glass"></i></label>
+      <label class="search search--menu"><input type="search" placeholder="Vyhledat" aria-label="Vyhledat"><i class="ph ph-magnifying-glass"></i></label>
     </div></nav>`;
   $("burger").addEventListener("click", (e) => {
     const open = document.body.classList.toggle("nav-open");
