@@ -27,7 +27,7 @@
     { id: "antisemitismus", name: "Antisemitismus", icon: "warning" },
     { id: "sionismus", name: "Sionismus", icon: "flag-banner" },
     { id: "7-rijen", name: "7. říjen", icon: "calendar-x" },
-    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "sword" },
+    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "globe-hemisphere-east" },
     { id: "veda", name: "Věda a inovace", icon: "flask" },
   ];
   const T = Object.fromEntries(TOPICS.map((t) => [t.id, t]));
