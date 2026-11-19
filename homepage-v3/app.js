@@ -86,7 +86,7 @@
       <a class="hdr__logo" href="#" aria-label="Jedním hlasem – úvod"><img src="../homepage-v2/img/logo.png" alt="Jedním hlasem"></a>
       <label class="search search--bar"><input type="search" placeholder="Hledat články" aria-label="Hledat články"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></label>
       <a class="pill" href="#">Podpořte nás</a>
-      <a class="pill pill--red" href="#" aria-label="Nahlásit incident"><i class="ph ph-warning" aria-hidden="true"></i><span>Nahlásit incident</span></a>
+      <a class="pill pill--red" href="#">Nahlásit incident</a>
       <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false"><i class="ph ph-list"></i></button>
     </div></div>
     <nav class="hdr__nav" aria-label="Hlavní"><div class="hdr__in">
@@ -96,6 +96,7 @@
           ${n.sub ? `<div class="sub${n.wide ? " sub--wide" : ""}">${n.sub.map((s) => `<a href="#">${s}</a>`).join("")}</div>` : ""}
         </li>`).join("")}
       </ul>
+      <a class="pill pill--red pill--menu" href="#">Nahlásit incident</a>
       <label class="search search--menu"><input type="search" placeholder="Hledat články" aria-label="Hledat články"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></label>
     </div></nav>`;
   $("burger").addEventListener("click", (e) => {
