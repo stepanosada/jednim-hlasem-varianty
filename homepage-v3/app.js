@@ -14,37 +14,39 @@
   const author = (a) => (a.author === "Redakce JednímHlasem" ? "Redakce" : a.author);
   const firstSentence = (s) => s.split(/(?<=[.?!])\s/)[0];
 
-  // 12 stálých témat podle Míny. Přiřazení článků je zatím odhad podle klíčových slov,
+  // 12 stálých témat a jejich klíčová slova podle Míny (Web témata.docx, 19. 11. 2026).
+  // Přiřazení článků je v prototypu automatický odhad podle klíčových slov v titulku a perexu,
   // ve Frameru ho nahradí ruční výběr redakce.
   const TOPICS = [
-    { id: "historie", name: "Historie", icon: "book-open" },
-    { id: "izrael", name: "Izrael – politika a společnost", icon: "bank" },
-    { id: "zidovsky-svet", name: "Židovský svět", icon: "star-of-david" },
-    { id: "bezpecnost", name: "Bezpečnost a terorismus", icon: "shield-check" },
-    { id: "lide", name: "Lidé a příběhy", icon: "users-three" },
-    { id: "media", name: "Média a instituce", icon: "monitor" },
-    { id: "cesko", name: "Česko", icon: "map-trifold" },
-    { id: "antisemitismus", name: "Antisemitismus", icon: "warning" },
-    { id: "sionismus", name: "Sionismus", icon: "flag-banner" },
-    { id: "7-rijen", name: "7. říjen", icon: "calendar-x" },
-    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "globe-hemisphere-east" },
-    { id: "veda", name: "Věda a inovace", icon: "flask" },
+    { id: "historie", name: "Historie", icon: "book-open", kw: /dějin|šoa|holokaust|holocaust|vznik izraele|vznik státu|židé v arabských|pogrom|histori|mýt|stalin|sovět|19[0-4]\d/ },
+    { id: "izrael", name: "Izrael – politika a\u00a0společnost", icon: "bank", kw: /izraelsk[áéý] politik|volb|kneset|netanjah|diplomac|zahraniční vztah|vlád|společnost/ },
+    { id: "zide-tradice", name: "Židé a\u00a0tradice", icon: "star-of-david", kw: /židovsk[áéý] identit|diaspor|komunit|židovsk[ýé] život|kultur|judaism|chanuk|šabat|svát|skaut|menor|tradic/ },
+    { id: "bezpecnost", name: "Bezpečnost a\u00a0terorismus", icon: "shield-check", kw: /\bidf\b|armád|hamás|hizballáh|írán|muslimské bratrstvo|islamis|teror|atentát|voják/ },
+    { id: "lide", name: "Lidé a\u00a0příběhy", icon: "users-three", kw: /osobnost|rozhovor|svědectví|odvah|spojen|osobní|příběh|tváře izraele/ },
+    { id: "media", name: "Média a\u00a0instituce", icon: "monitor", kw: /medi|médi|zaujat|fact|osn\b|unrwa|ngo|lidskoprávní|amnesty|lékaři bez hranic|wikipedi|\bai\b|bbc|novinář|titulek/ },
+    { id: "cesko", name: "Česko", icon: "map-trifold", kw: /česk|čech|praž|praha|třebíč|pardubic|masaryk|smetan/ },
+    { id: "antisemitismus", name: "Antisemitismus", icon: "warning", kw: /antisemit|antisionis|\bbds\b|incident|delegitimiz|démoniz|nenávist|bojkot|genocid|univerzit/ },
+    { id: "sionismus", name: "Sionismus", icon: "flag-banner", kw: /sionis|sebeurčení/ },
+    { id: "7-rijen", name: "7. říjen", icon: "calendar-x", kw: /7\. říj|masakr|přeživ|rukojm/ },
+    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "globe-hemisphere-east", kw: /gaz|západní břeh|judej|palestin|nakb|uprchl|mírov|abrahám|válk|příměří|anex/ },
+    { id: "veda", name: "Věda a\u00a0inovace", icon: "flask", kw: /objev|věd|nobel|medicín|technolog|technion|inovac|výzkum|klimat/ },
   ];
   const T = Object.fromEntries(TOPICS.map((t) => [t.id, t]));
+  const count = (re, text) => (text.match(new RegExp(re.source, "g")) || []).length;
   const topicOf = (a) => {
-    const s = `${a.title} ${a.perex}`.toLowerCase();
-    if (a.cat === "cesi" || /česk|praž|třebíč|pardubic|masaryk/.test(s)) return T.cesko;
-    if (/7\. říj|rukojm|masakr/.test(s)) return T["7-rijen"];
-    if (/technolog|věd|nobel|medicín|klimat|\bai\b|technion/.test(s)) return T.veda;
-    if (a.tag === "Média a instituce" || /médi|osn|bbc|wikipedi|amnesty|novinář/.test(s)) return T.media;
-    if (a.tag === "Antisemitismus" || /antisemit|holokaust|pogrom/.test(s)) return T.antisemitismus;
-    if (/sionis/.test(s)) return T.sionismus;
-    if (/nakb|uprchl|palestin|gaz|arab/.test(s)) return T.konflikt;
-    if (a.cat === "tvare" || a.tag === "Hlasy a příběhy") return T.lide;
-    if (a.tag === "Bezpečnost a ideologie" || /teror|armád|idf/.test(s)) return T.bezpecnost;
-    if (/19\d\d|dějin|histori/.test(s)) return T.historie;
-    if (/židov|chanuk|menor/.test(s)) return T["zidovsky-svet"];
-    return T.izrael;
+    const title = a.title.toLowerCase(), perex = a.perex.toLowerCase();
+    if (/deník dagmar/i.test(a.title)) return T.izrael;
+    let best = T.izrael, top = 0;
+    for (const t of TOPICS) {
+      let score = 3 * count(t.kw, title) + count(t.kw, perex);
+      if (t.id === "cesko" && a.cat === "cesi") score += 3;
+      if (t.id === "lide" && a.cat === "tvare") score += 2;
+      // Hlavní tag z dnešního CMS jako nápověda.
+      if (t.id === "antisemitismus" && a.tag === "Antisemitismus") score += 2;
+      if (t.id === "media" && a.tag === "Média a instituce") score += 2;
+      if (score > top) { top = score; best = t; }
+    }
+    return best;
   };
 
   const used = new Set();
