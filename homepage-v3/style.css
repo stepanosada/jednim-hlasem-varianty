@@ -1,5 +1,5 @@
 /* Jedním hlasem – homepage v3.
-   Značka: modrá #0038B8 a DM Sans. Redakční hlas: serif Newsreader pro titulky článků.
+   Značka: modrá #0038B8 a DM Sans (jediné písmo webu, titulky článků ve vyšší řezné váze).
    Nadpisy v inkoustové tmavé, modrá jen pro značku a odkazy, červená jen pro čas aktualit. */
 :root {
   --ink: #0e1a33;
@@ -16,7 +16,7 @@
   --gold: #d8b850;
   --black: #050505;
   --sans: "DM Sans", system-ui, sans-serif;
-  --serif: "Newsreader", Georgia, serif;
+  --title: "DM Sans", system-ui, sans-serif;
   --gutter: 80px;
   --gap: 32px;
   --section: 72px;
@@ -124,9 +124,9 @@ main { padding-bottom: var(--section); }
 .card__topic { position: absolute; left: 0; bottom: -1px; width: 44px; height: 42px; display: grid; place-items: center; background: var(--bg); color: var(--primary); font-size: 22px; }
 .card__body { display: block; padding-top: 14px; }
 .card__kicker { display: block; color: var(--primary); font-size: 13px; font-weight: 600; margin-bottom: 6px; }
-.card__title { font-family: var(--serif); color: var(--ink); font-weight: 600; font-size: 22px; line-height: 1.2; letter-spacing: -.005em; transition: color .2s; }
-.card--lead .card__title { font-size: 34px; line-height: 1.1; letter-spacing: -.015em; }
-.card--small .card__title { font-size: 19px; line-height: 1.25; }
+.card__title { font-family: var(--title); color: var(--ink); font-weight: 700; font-size: 21px; line-height: 1.25; letter-spacing: -.01em; transition: color .2s; }
+.card--lead .card__title { font-size: 32px; line-height: 1.12; letter-spacing: -.02em; }
+.card--small .card__title { font-size: 18px; line-height: 1.3; }
 .card a:hover .card__title { color: var(--primary); }
 .card__perex { margin-top: 10px; font-size: 15px; line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .card--lead .card__perex { font-size: 16px; -webkit-line-clamp: 3; }
@@ -139,11 +139,11 @@ main { padding-bottom: var(--section); }
 .pitva__head { position: relative; padding: 40px 32px 28px; border-bottom: 1px solid rgba(255, 255, 255, .14); }
 .pitva__head i { display: block; font-size: 40px; color: var(--sky); margin-bottom: 14px; }
 .pitva__head h2 { font-size: 36px; line-height: 1; font-weight: 700; letter-spacing: -.025em; }
-.pitva__head p { margin-top: 12px; font-family: var(--serif); font-size: 19px; line-height: 1.35; color: rgba(255, 255, 255, .78); }
+.pitva__head p { margin-top: 12px; font-family: var(--title); font-size: 17px; line-height: 1.35; color: rgba(255, 255, 255, .78); }
 .pitva__list { list-style: none; margin: 0; padding: 0 32px; }
 .pitva__list li + li { border-top: 1px solid rgba(255, 255, 255, .14); }
 .pitva__list a { display: block; padding: 20px 0; }
-.pitva__list h3 { font-family: var(--serif); font-size: 20px; line-height: 1.25; font-weight: 600; transition: color .2s; }
+.pitva__list h3 { font-family: var(--title); font-size: 18px; line-height: 1.3; font-weight: 700; transition: color .2s; }
 .pitva__list a:hover h3 { color: var(--sky); }
 .pitva__list p { margin-top: 6px; font-size: 14px; line-height: 1.5; color: rgba(255, 255, 255, .66); }
 .pitva__more { display: block; margin: 0 32px; padding: 18px 0 28px; border-top: 1px solid rgba(255, 255, 255, .14); font-size: 14px; font-weight: 600; color: var(--sky); }
@@ -169,7 +169,7 @@ main { padding-bottom: var(--section); }
 .genolie__text span { display: block; margin-top: 10px; font-size: 16px; color: rgba(255, 255, 255, .8); }
 .genolie__text em { display: inline-block; margin-top: 16px; font-style: normal; font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .genolie__quote { border-left: 1px solid rgba(255, 255, 255, .3); padding-left: 48px; }
-.genolie__quote strong { display: block; font-family: var(--serif); font-size: 28px; line-height: 1.2; font-weight: 600; }
+.genolie__quote strong { display: block; font-family: var(--title); font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -.015em; }
 .genolie__quote span { display: block; margin-top: 6px; font-size: 14px; color: rgba(255, 255, 255, .7); }
 .genolie img { width: 260px; }
 .films { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -178,7 +178,7 @@ main { padding-bottom: var(--section); }
 .denik { display: grid; grid-template-columns: auto 1fr 300px; align-items: center; background: var(--gold); min-height: 150px; }
 .denik__name { padding: 0 40px 0 56px; color: var(--white); font-size: 36px; line-height: 1.05; font-weight: 700; letter-spacing: -.02em; text-align: right; }
 .denik__entry { padding: 24px 40px; border-left: 1px solid rgba(5, 5, 5, .2); }
-.denik__entry strong { display: block; font-family: var(--serif); color: var(--black); font-size: 36px; line-height: 1.1; font-weight: 600; }
+.denik__entry strong { display: block; font-family: var(--title); color: var(--black); font-size: 34px; line-height: 1.1; font-weight: 700; letter-spacing: -.02em; }
 .denik__entry span { display: block; margin-top: 6px; color: rgba(5, 5, 5, .7); font-size: 14px; }
 .denik img { width: 300px; height: 100%; object-fit: cover; }
 
@@ -245,7 +245,7 @@ main { padding-bottom: var(--section); }
   .key__title { font-size: 38px; }
   .key__btn { justify-self: start; margin-top: 20px; }
   .rec { grid-template-columns: 1fr; }
-  .card--lead .card__title { font-size: 28px; }
+  .card--lead .card__title { font-size: 26px; }
   .rubriky { grid-template-columns: 1fr; }
   .layout { display: flex; flex-direction: column; }
   .main, .side { display: contents; }
