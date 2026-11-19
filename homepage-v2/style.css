@@ -182,6 +182,7 @@ main { padding-bottom: 72px; }
   :root { --gutter: 40px; }
   .menu { gap: 24px; }
   .search--bar { width: 180px; }
+  .sub--wide { left: auto; right: 0; }
   .top { grid-template-columns: 1fr; }
   .hero { min-height: 400px; }
   .layout { grid-template-columns: 1fr; gap: 0; }
