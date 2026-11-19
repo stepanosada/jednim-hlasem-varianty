@@ -106,6 +106,7 @@ main { padding-bottom: var(--section); }
 
 /* ---------- Klíčové téma ---------- */
 .key { margin-top: var(--gap); display: grid; grid-template-columns: 1fr auto; grid-template-areas: "label btn" "title btn" "text btn"; align-items: center; column-gap: 48px; padding: 44px 56px; background: var(--primary); color: var(--white); overflow: hidden; }
+.key::after { content: ""; position: absolute; inset: 0 0 0 35%; background: url(img/antisemitismus-1938.jpg) center 35% / cover no-repeat; mix-blend-mode: luminosity; opacity: .26; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 45%); mask-image: linear-gradient(90deg, transparent 0%, #000 45%); pointer-events: none; }
 .key > * { position: relative; z-index: 1; }
 .key__label { grid-area: label; font-size: 14px; font-weight: 600; color: var(--pale); }
 .key__title { grid-area: title; margin: 4px 0 8px; font-size: 52px; line-height: 1; font-weight: 700; letter-spacing: -.025em; }
@@ -247,6 +248,7 @@ main { padding-bottom: var(--section); }
   .hero h1 { font-size: 30px; line-height: 1.1; }
   .hero p { margin-top: 14px; font-size: 16px; }
   .news { padding: 28px 16px 0; }
+  .key::after { inset: 0; opacity: .2; -webkit-mask-image: linear-gradient(180deg, transparent 40%, #000 100%); mask-image: linear-gradient(180deg, transparent 40%, #000 100%); }
   .key { grid-template-columns: 1fr; grid-template-areas: "label" "title" "text" "btn"; padding: 32px 20px 28px; }
   .key__title { font-size: 38px; }
   .key__btn { justify-self: start; margin-top: 20px; }
