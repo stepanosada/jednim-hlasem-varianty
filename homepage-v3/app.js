@@ -85,7 +85,7 @@
     <div class="hdr__bar"><div class="hdr__in">
       <a class="hdr__logo" href="#" aria-label="Jedním hlasem – úvod"><img src="../homepage-v2/img/logo.png" alt="Jedním hlasem"></a>
       <label class="search search--bar"><input type="search" placeholder="Hledat články" aria-label="Hledat články"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></label>
-      <a class="pill" href="#">Podpořte nás</a>
+      <a class="pill roll" href="#">Podpořte nás</a>
       <a class="pill pill--red" href="#">Nahlásit incident</a>
       <button class="burger" id="burger" aria-label="Otevřít menu" aria-expanded="false"><i class="ph ph-list"></i></button>
     </div></div>
@@ -99,6 +99,13 @@
       <a class="pill pill--red pill--menu" href="#">Nahlásit incident</a>
       <label class="search search--menu"><input type="search" placeholder="Hledat články" aria-label="Hledat články"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></label>
     </div></nav>`;
+  // Bílá tlačítka: text se při najetí přetočí jako kostka (stejně jako na stepanosada.com).
+  document.querySelectorAll(".roll").forEach((el) => {
+    const t = el.textContent.trim();
+    el.setAttribute("aria-label", t);
+    el.innerHTML = `<span class="roll__in" aria-hidden="true"><span>${t}</span><span>${t}</span></span>`;
+  });
+
   $("burger").addEventListener("click", (e) => {
     const open = document.body.classList.toggle("nav-open");
     e.currentTarget.setAttribute("aria-expanded", open);
