@@ -14,6 +14,7 @@
   --white: #fff;
   --red: #d73f42;
   --gold: #d8b850;
+  --gold-text: #8a701f; /* zlatá pro text na bílé, kontrast 4.75 : 1 */
   --black: #050505;
   --sans: "DM Sans", system-ui, sans-serif;
   --title: "DM Sans", system-ui, sans-serif;
@@ -110,7 +111,7 @@ main { padding-bottom: var(--section); }
 .key__title { grid-area: title; margin: 4px 0 8px; font-size: 52px; line-height: 1; font-weight: 700; letter-spacing: -.025em; }
 .key__text { grid-area: text; font-size: 17px; color: rgba(255, 255, 255, .88); }
 .key__btn { grid-area: btn; background: var(--white); color: var(--primary); padding: 15px 28px; border-radius: 999px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, color .2s; }
-.key:hover .key__btn { background: var(--white); color: var(--gold); }
+.key:hover .key__btn { background: var(--white); color: var(--gold-text); }
 
 /* ---------- Články ---------- */
 .layout { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: 48px; }
