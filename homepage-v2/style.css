@@ -24,12 +24,14 @@ main { padding-bottom: 72px; }
 
 .wrap { width: 100%; max-width: calc(1280px + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); }
 
-/* Dekorativní „ocásek“ jako na webu: zářez v levém horním rohu bloku. */
+/* Dekorativní „ocásek“: zkosený levý horní roh bloku. Leží přesně na okraji containeru,
+   stejně jako ocásek pod logem, takže při scrollování na sebe navazují. */
 .tail { position: relative; }
 .tail::before {
-  content: ""; position: absolute; z-index: 2; top: 0; left: 88px; width: 20px; height: 20px;
+  content: ""; position: absolute; z-index: 2; top: 0; left: 0; width: 20px; height: 20px;
   background: var(--bg); clip-path: polygon(0 0, 100% 0, 0 100%);
 }
+.ftr.tail::before { left: max(var(--gutter), calc((100% - 1280px) / 2)); }
 
 /* ---------- Hlavička ---------- */
 .hdr { position: sticky; top: 0; z-index: 50; background: var(--bg); padding-top: 20px; }
@@ -38,6 +40,7 @@ main { padding-bottom: 72px; }
 .hdr__bar .hdr__in { justify-content: flex-end; position: relative; }
 .hdr__logo { position: absolute; left: calc(var(--gutter) - 24px); top: -20px; width: 136px; height: 140px; background: var(--white); display: grid; place-items: start center; padding-top: 20px; z-index: 3; }
 .hdr__logo img { width: 88px; }
+.hdr__logo::after { content: ""; position: absolute; top: 100%; left: 24px; width: 20px; height: 20px; background: var(--white); clip-path: polygon(0 0, 100% 0, 0 100%); }
 .pill { background: var(--white); color: var(--primary); border-radius: 999px; padding: 10px 24px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .pill:hover { background: var(--pale); }
 .burger { display: none; }
@@ -204,7 +207,8 @@ main { padding-bottom: 72px; }
   .sub--wide { grid-template-columns: 1fr; }
   .search { width: 100%; margin-top: 16px; }
 
-  .tail::before { left: 24px; width: 16px; height: 16px; }
+  .tail::before { width: 16px; height: 16px; }
+  .hdr__logo::after { display: none; }
   .head h2 { font-size: 24px; }
   .head--sm h2 { font-size: 20px; }
   .block { margin-top: 44px; }
