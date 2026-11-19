@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Jedním hlasem – návrh homepage v3</title>
+  <link rel="icon" href="../assets/logo-bublina-modra.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&family=Newsreader:opsz,wght@6..72,500..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#obsah">Přeskočit na obsah</a>
+  <header class="hdr" id="hdr"></header>
+
+  <main id="obsah">
+    <!-- Úvod: hlavní sdělení + aktuality -->
+    <section class="wrap intro">
+      <div class="hero notch">
+        <img src="../homepage-v2/img/hero.jpg" alt="Západní zeď v Jeruzalémě večer" class="hero__img">
+        <div class="hero__text">
+          <h1>Stojíme za právem Izraele<br> na&nbsp;existenci a&nbsp;sebeobranu.</h1>
+          <p>Vystupujeme proti antisemitismu. Přinášíme fakta, souvislosti a&nbsp;pohledy,<br> které v&nbsp;české debatě o&nbsp;Izraeli často chybí.</p>
+        </div>
+      </div>
+      <aside class="news" aria-labelledby="news-h">
+        <div class="sec-head sec-head--tight">
+          <h2 id="news-h">Aktuality</h2>
+          <a href="#" class="more">Všechny aktuality</a>
+        </div>
+        <ol class="news__list" id="news"></ol>
+        <p class="sample">Ukázkové zprávy, skutečné doplní redakce.</p>
+      </aside>
+    </section>
+
+    <!-- Klíčové téma -->
+    <section class="wrap">
+      <a class="key notch" href="#">
+        <span class="key__label">Klíčové téma</span>
+        <strong class="key__title">Antisemitismus</strong>
+        <span class="key__text">Nová podoba starých předsudků – jak ji poznat, pojmenovat a&nbsp;věcně vyvracet.</span>
+        <span class="key__btn">Prozkoumat téma</span>
+      </a>
+    </section>
+
+    <!-- Články + pravý sloupec -->
+    <section class="wrap layout">
+      <div class="main">
+        <div class="sec o-rec">
+          <div class="sec-head"><h2>Doporučujeme</h2><a href="#" class="more">Výběr redakce</a></div>
+          <div class="rec" id="rec"></div>
+        </div>
+        <div class="rubriky o-rub" id="rubriky"></div>
+      </div>
+      <aside class="side">
+        <div class="pitva notch">
+          <div class="pitva__head">
+            <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+            <h2>Mediální pitva</h2>
+            <p>Co se do&nbsp;zprávy vešlo. A&nbsp;co zůstalo venku.</p>
+          </div>
+          <ul class="pitva__list" id="pitva"></ul>
+          <a href="#" class="pitva__more">Všechny rozbory</a>
+        </div>
+        <div class="follow">
+          <h2>Sledujte nás</h2>
+          <p>Každodenní komentáře a&nbsp;upozornění na&nbsp;obsah, který stojí za&nbsp;pozornost.</p>
+          <div class="follow__icons">
+            <a href="https://www.facebook.com/JednimHlasem" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
+            <a href="https://x.com/" aria-label="X"><i class="ph ph-x-logo"></i></a>
+            <a href="https://www.instagram.com/" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Témata -->
+    <section class="wrap sec">
+      <div class="sec-head"><h2>Prozkoumejte témata</h2><a href="#" class="more">Všech 12 témat</a></div>
+      <div class="topics" id="topics"></div>
+    </section>
+
+    <!-- Projekty a seriály -->
+    <section class="wrap sec banners">
+      <a class="genolie notch" href="https://gazagenolie.com/cs/" target="_blank" rel="noopener">
+        <div class="genolie__text">
+          <strong>Jak vzniká největší lež 21.&nbsp;století?</strong>
+          <span>Gaza GenoLIE sleduje vznik a&nbsp;šíření moderní krvavé pomluvy – obvinění Izraele z&nbsp;genocidy.</span>
+          <em>Odhalte Gaza GenoLIE</em>
+        </div>
+        <div class="genolie__quote">
+          <strong>„Obvinění začalo 8.&nbsp;října“</strong>
+          <span>Jedním hlasem je českým partnerem projektu.</span>
+        </div>
+        <img src="../homepage-v2/img/genolie.png" alt="Gaza GenoLIE">
+      </a>
+      <div class="films">
+        <a class="notch" href="https://nazadocumentary.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/naza.jpg" alt="NAZA – The Real Story"></a>
+        <a class="notch" href="https://www.gazawood.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/gazawood.jpg" alt="Gazawood"></a>
+      </div>
+      <a class="denik notch" href="#">
+        <span class="denik__name">Deník<br>Dagmar Langové</span>
+        <span class="denik__entry"><strong id="denik-title">Dnes o&nbsp;dívce Núr</strong><span id="denik-date">10. 8. 2026</span></span>
+        <img src="../homepage-v2/img/kamen.png" alt="">
+      </a>
+    </section>
+  </main>
+
+  <footer class="ftr" id="ftr"></footer>
+
+  <script src="../homepage-v2/clanky.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
