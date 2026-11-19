@@ -76,7 +76,7 @@
   // ---------- Hlavička ----------
   const NAV = [
     { label: "Články", sub: ["Nejnovější", "Doporučujeme", "Češi a Izrael", "Studie a analýzy", "Tváře Izraele", "Mediální pitva"] },
-    { label: "Témata", sub: TOPICS.map((t) => t.name), wide: true },
+    { label: "Témata", sub: TOPICS.map((t) => [t.name, t.icon]), wide: true },
     { label: "Antisemitismus", sub: ["Co je antisemitismus", "Proměny v čase", "Nový antisemitismus", "Kritika, nebo nenávist?"] },
     { label: "O nás" },
     { label: "Zapojte se" },
@@ -93,7 +93,7 @@
       <ul class="menu">${NAV.map((n) => `
         <li class="${n.sub ? "has-sub" : ""}">
           <a href="#">${n.label}${n.sub ? ' <i class="ph ph-caret-down" aria-hidden="true"></i>' : ""}</a>
-          ${n.sub ? `<div class="sub${n.wide ? " sub--wide" : ""}">${n.sub.map((s) => `<a href="#">${s}</a>`).join("")}</div>` : ""}
+          ${n.sub ? `<div class="sub${n.wide ? " sub--wide" : ""}">${n.sub.map((s) => (Array.isArray(s) ? `<a href="#"><i class="ph ph-${s[1]}" aria-hidden="true"></i>${s[0]}</a>` : `<a href="#">${s}</a>`)).join("")}</div>` : ""}
         </li>`).join("")}
       </ul>
       <a class="pill pill--red pill--menu" href="#">Nahlásit incident</a>
