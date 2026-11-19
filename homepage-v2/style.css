@@ -34,7 +34,7 @@ main { padding-bottom: 72px; }
 .ftr.tail::before { left: max(var(--gutter), calc((100% - 1280px) / 2)); }
 
 /* ---------- Hlavička ---------- */
-.hdr { position: sticky; top: 0; z-index: 50; background: var(--bg); padding-top: 20px; }
+.hdr { position: sticky; top: 0; z-index: 50; background: var(--white); padding-top: 20px; }
 .hdr__in { max-width: calc(1280px + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); display: flex; align-items: center; height: 100%; }
 .hdr__bar { height: 60px; background: var(--primary); }
 .hdr__bar .hdr__in { justify-content: flex-end; position: relative; }
