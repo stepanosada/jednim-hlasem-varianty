@@ -170,7 +170,7 @@
     </div>`;
 
   // ---------- Přepínač variant (jen pro schvalování návrhu) ----------
-  const FONTS = [["", "DM Sans"], ["schibsted", "Schibsted Grotesk"], ["source", "Source Sans 3"], ["franklin", "Libre Franklin"]];
+  const FONTS = [["", "DM Sans"], ["inter", "Inter"], ["helvetica", "Helvetica"], ["manrope", "Manrope"]];
   const sw = document.createElement("div");
   sw.className = "switch";
   sw.innerHTML = `
