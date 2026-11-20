@@ -308,11 +308,8 @@ main { padding-bottom: var(--section); }
 /* ---------- Varianta 2 ---------- */
 /* Čistě bílý podklad; Aktuality bez rámečku, text lícuje s okrajem sloupce. */
 .v2 { --bg: #fff; }
-.v2 .news { padding: 0; }
+.v2 .news { padding: 24px 0 0; }
 .v2 .hdr__logo::after { display: none; }
-/* Podpořte nás zlatě jako v původním návrhu. */
-.v2 .hdr__bar .pill:not(.pill--red) { color: var(--ink); }
-.v2 .hdr__bar .pill:not(.pill--red)::before { background: var(--gold); }
 /* Zářez sedí na horní hraně tam, kde začíná text bloku – jako ocásek pod logem. */
 .v2 .notch::before { left: var(--nx, -1px); }
 .v2 .hero, .v2 .key, .v2 .genolie, .v2 .denik { --nx: 56px; }
