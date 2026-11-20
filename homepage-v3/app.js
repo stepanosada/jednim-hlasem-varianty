@@ -10,7 +10,9 @@
   const nb = (s) => esc(s).replace(/(^|[\s(„])([KkSsVvZzOoUuAaIi]) /g, "$1$2 ").replace(/(\d)\. (?=\d)/g, "$1. ").replace(/ ([–—]) /g, " $1 ");
   const MONTHS = ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"];
   const date = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${d}. ${MONTHS[m - 1]} ${y}`; };
-  const img = (a, w) => `${a.img}?scale-down-to=${w}`;
+  // Fotky s bílým rámečkem v originále – v prototypu ořezaná kopie, ve Frameru vyměnit v CMS.
+  const CROPPED = { "hruzy-7-rijna-prekrocily-vse-co-si-dokazete-predstavit": "img/hruzy-7-rijna.jpg" };
+  const img = (a, w) => CROPPED[a.slug] || `${a.img}?scale-down-to=${w}`;
   const author = (a) => (a.author === "Redakce JednímHlasem" ? "Redakce" : a.author);
   const firstSentence = (s) => s.split(/(?<=[.?!])\s/)[0];
 
