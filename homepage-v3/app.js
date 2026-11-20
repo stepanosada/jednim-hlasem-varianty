@@ -1,7 +1,6 @@
 /* Jedním hlasem – návrh homepage v3 (prototyp ke schválení, ne finální web). */
 (() => {
   "use strict";
-  const V2 = document.documentElement.classList.contains("v2");
   const A = window.JH_ARTICLES || [];
   const $ = (id) => document.getElementById(id);
   const ART = "https://jednimhlasem.framer.website/clanky/";
@@ -25,7 +24,7 @@
     { id: "bezpecnost", name: "Bezpečnost a\u00a0terorismus", icon: "shield-check", kw: /\bidf\b|armád|hamás|hizballáh|írán|muslimské bratrstvo|islamis|teror|atentát|voják/ },
     { id: "lide", name: "Lidé a\u00a0příběhy", icon: "users-three", kw: /osobnost|rozhovor|svědectví|odvah|spojen|osobní|příběh|tváře izraele/ },
     { id: "media", name: "Média a\u00a0instituce", icon: "monitor", kw: /medi|médi|zaujat|fact|osn\b|unrwa|ngo|lidskoprávní|amnesty|lékaři bez hranic|wikipedi|\bai\b|bbc|novinář|titulek/ },
-    { id: "cesko", name: "Česko", icon: V2 ? "castle-turret" : "map-trifold", kw: /česk|čech|praž|praha|třebíč|pardubic|masaryk|smetan/ },
+    { id: "cesko", name: "Česko", icon: "castle-turret", kw: /česk|čech|praž|praha|třebíč|pardubic|masaryk|smetan/ },
     { id: "antisemitismus", name: "Antisemitismus", icon: "warning", kw: /antisemit|antisionis|\bbds\b|incident|delegitimiz|démoniz|nenávist|bojkot|genocid|univerzit/ },
     { id: "sionismus", name: "Sionismus", icon: "flag-banner", kw: /sionis|sebeurčení/ },
     { id: "7-rijen", name: "7. říjen", icon: "calendar-x", kw: /7\. říj|masakr|přeživ|rukojm/ },
@@ -169,19 +168,4 @@
       </div>
     </div>`;
 
-  // ---------- Přepínač variant (jen pro schvalování návrhu) ----------
-  const FONTS = [["", "DM Sans"], ["inter", "Inter"], ["helvetica", "Helvetica"], ["manrope", "Manrope"]];
-  const sw = document.createElement("div");
-  sw.className = "switch";
-  sw.innerHTML = `
-    <span class="switch__label">Varianta</span>
-    <a href="?" class="${V2 ? "" : "is-on"}">1</a><a href="?v=2" class="${V2 ? "is-on" : ""}">2</a>
-    ${V2 ? `<label class="switch__font"><span class="switch__label">Písmo</span><select id="font">${FONTS.map(([id, n]) => `<option value="${id}"${(document.documentElement.dataset.font || "") === id ? " selected" : ""}>${n}</option>`).join("")}</select></label>` : ""}`;
-  document.body.append(sw);
-  if (V2) $("font").addEventListener("change", (e) => {
-    const f = e.target.value, url = new URL(location.href);
-    if (f) { document.documentElement.dataset.font = f; url.searchParams.set("font", f); }
-    else { delete document.documentElement.dataset.font; url.searchParams.delete("font"); }
-    history.replaceState(null, "", url);
-  });
 })();
