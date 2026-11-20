@@ -58,17 +58,16 @@
     return out;
   };
 
-  // Ikona tématu sedí v rohu fotky jako zářez – stejný tvar jako ocásek značky.
+  // Ikona hlavního tématu stojí u jeho názvu nad titulkem.
   const card = (a, size) => {
     const t = topicOf(a);
     const w = size === "lead" ? 1200 : 800;
     return `
     <article class="card card--${size}">
       <a href="${ART}${a.slug}" target="_blank" rel="noopener">
-        <span class="card__img"><img src="${img(a, w)}" alt="" loading="lazy">
-          <span class="card__topic" title="${esc(t.name)}"><i class="ph ph-${t.icon}" aria-hidden="true"></i></span></span>
+        <span class="card__img"><img src="${img(a, w)}" alt="" loading="lazy"></span>
         <span class="card__body">
-          <span class="card__kicker">${t.name}</span>
+          <span class="card__kicker"><i class="ph ph-${t.icon}" aria-hidden="true"></i>${t.name}</span>
           <h3 class="card__title">${nb(a.title)}</h3>
           ${size !== "small" ? `<p class="card__perex">${nb(a.perex)}</p>` : ""}
           <span class="card__meta"><span>${esc(author(a))}</span><time datetime="${a.date}">${date(a.date)}</time></span>
