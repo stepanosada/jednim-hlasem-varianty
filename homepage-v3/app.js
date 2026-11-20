@@ -10,9 +10,18 @@
   const nb = (s) => esc(s).replace(/(^|[\s(„])([KkSsVvZzOoUuAaIi]) /g, "$1$2 ").replace(/(\d)\. (?=\d)/g, "$1. ").replace(/ ([–—]) /g, " $1 ");
   const MONTHS = ["ledna", "února", "března", "dubna", "května", "června", "července", "srpna", "září", "října", "listopadu", "prosince"];
   const date = (iso) => { const [y, m, d] = iso.split("-").map(Number); return `${d}. ${MONTHS[m - 1]} ${y}`; };
-  // Fotky s bílým rámečkem v originále – v prototypu ořezaná kopie, ve Frameru vyměnit v CMS.
-  const CROPPED = { "hruzy-7-rijna-prekrocily-vse-co-si-dokazete-predstavit": "img/hruzy-7-rijna.jpg" };
-  const img = (a, w) => CROPPED[a.slug] || `${a.img}?scale-down-to=${w}`;
+  // Lokální fotky: ořezaná kopie (bílý rámeček v originále) a fotky, které Mína dodala 20. 11. 2026.
+  // Ve Frameru je nahradí obrázky v CMS.
+  const LOCAL = {
+    "hruzy-7-rijna-prekrocily-vse-co-si-dokazete-predstavit": "img/hruzy-7-rijna.jpg",
+    ...Object.fromEntries(["dekolonialismus-a-novy-antisemitismus", "gaza-proc-samotna-rekonstrukce-nestaci", "genocida-amnesty-ji-zjistila",
+      "iran-slabne-region-se-meni-co-prijde-dal", "jeste-nehori-ale-verejny-prostor-uz-doutna", "kdyz-genocida-nestaci",
+      "krive-obvineni-z-genocidy-demonizace-opravnene-obrany", "lekari-bez-hranic-a-iluze-neutrality", "make-bethlehem-christian-again",
+      "nova-palestinska-ustava-legitimizace-vecneho-konfliktu-a-nenavisti", "izrael-a-ochrana-zvirat", "od-arabskeho-bojkotu-k-bds",
+      "paradox-moderniho-bojiste", "primeri-jako-iluze", "uci-se-cist-psat-a-nenavidet", "vltava-a-hatikva"].map((s) => [s, `img/clanky/${s}.jpg`])),
+  };
+  A.forEach((a) => { if (LOCAL[a.slug]) a.img = LOCAL[a.slug]; });
+  const img = (a, w) => (LOCAL[a.slug] || `${a.img}?scale-down-to=${w}`);
   const author = (a) => (a.author === "Redakce JednímHlasem" ? "Redakce" : a.author);
   const firstSentence = (s) => s.split(/(?<=[.?!])\s/)[0];
 
