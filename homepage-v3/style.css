@@ -295,3 +295,38 @@ main { padding-bottom: var(--section); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; animation: none !important; }
 }
+
+/* ---------- Přepínač variant (jen prototyp) ---------- */
+.switch { position: fixed; left: 16px; bottom: 16px; z-index: 90; display: flex; align-items: center; gap: 6px; padding: 6px 8px 6px 14px; background: var(--ink); color: var(--white); border-radius: 999px; font-size: 13px; box-shadow: 0 10px 30px rgba(14, 26, 51, .3); }
+.switch__label { color: rgba(255, 255, 255, .65); margin-right: 2px; }
+.switch a { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 50%; font-weight: 700; }
+.switch a.is-on { background: var(--white); color: var(--ink); }
+.switch__font { display: flex; align-items: center; gap: 6px; margin-left: 8px; padding-left: 14px; border-left: 1px solid rgba(255, 255, 255, .2); }
+.switch select { font: 600 13px var(--sans); color: var(--white); background: none; border: 0; padding: 6px 4px; cursor: pointer; }
+.switch select option { color: var(--ink); }
+
+/* ---------- Varianta 2 ---------- */
+/* Čistě bílý podklad; Aktuality drží tvar tenkým rámečkem. */
+.v2 { --bg: #fff; }
+.v2 .news { border: 1px solid var(--rule); }
+/* Zářez sedí na horní hraně tam, kde začíná text bloku – jako ocásek pod logem. */
+.v2 .notch::before { left: var(--nx, -1px); }
+.v2 .hero, .v2 .key, .v2 .genolie, .v2 .denik { --nx: 56px; }
+.v2 .pitva { --nx: 32px; }
+.v2 .films a { --nx: 24px; }
+/* Linky: všude 1px, nadpisové linky v modré z ikon. */
+.v2 .sub { border-top-width: 1px; }
+.v2 .sec-head, .v2 .follow { border-top-width: 1px; border-top-color: var(--sky); }
+/* Interaktivní prvky a kategorie velkými písmeny, stejně jako tlačítka. */
+.v2 .more, .v2 .pitva__more, .v2 .card__kicker, .v2 .genolie__text em { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+/* Zkušební písma (výběr v přepínači). */
+.v2[data-font="schibsted"] { --sans: "Schibsted Grotesk", system-ui, sans-serif; --title: var(--sans); }
+.v2[data-font="source"] { --sans: "Source Sans 3", system-ui, sans-serif; --title: var(--sans); }
+.v2[data-font="franklin"] { --sans: "Libre Franklin", system-ui, sans-serif; --title: var(--sans); }
+@media (max-width: 809.98px) {
+  .v2 .news { border: 0; }
+  .v2 .hero { --nx: 16px; }
+  .v2 .key, .v2 .pitva, .v2 .genolie, .v2 .denik { --nx: 20px; }
+  .v2 .films a { --nx: 16px; }
+  .switch { left: 12px; bottom: 12px; }
+}
