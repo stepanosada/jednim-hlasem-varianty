@@ -35,15 +35,16 @@
 
   // ---------- Rubriky ----------
   const RUBRIKY = [
-    { name: "Češi a Izrael", more: "Více z rubriky", fn: (a) => a.cat === "cesi" },
-    { name: "Studie a analýzy", more: "Více studií", fn: (a) => a.cat === "studie" },
-    { name: "Tváře Izraele", more: "Více z rubriky", fn: (a) => a.cat === "tvare" },
-    { name: "Nejnovější", more: "Archiv článků", fn: () => true },
+    { name: "Češi a Izrael", more: "Všechny články z rubriky Češi a Izrael", fn: (a) => a.cat === "cesi" },
+    { name: "Studie a analýzy", more: "Všechny studie a analýzy", fn: (a) => a.cat === "studie" },
+    { name: "Tváře Izraele", more: "Všechny články z rubriky Tváře Izraele", fn: (a) => a.cat === "tvare" },
+    { name: "Nejnovější", more: "Archiv všech článků", fn: () => true },
   ];
   $("rubriky").innerHTML = RUBRIKY.map((r) => `
     <div class="sec">
-      <div class="sec-head"><h2>${r.name}</h2><a href="#" class="more">${r.more}</a></div>
+      <div class="sec-head"><h2><a href="#">${r.name}<i class="ph ph-caret-right" aria-hidden="true"></i></a></h2></div>
       ${pick(r.fn, 1).map((a) => card(a, "mid")).join("")}
+      <div class="sec-foot"><a href="#" class="more">${r.more}</a></div>
     </div>`).join("");
 
   // ---------- Témata ----------
