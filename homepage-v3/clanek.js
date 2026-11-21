@@ -1,7 +1,7 @@
 /* Jedním hlasem – detail článku v3 (prototyp ke schválení, ne finální web). */
 (() => {
   "use strict";
-  const { A, $, esc, nb, date, img, author, topicsOf, card } = window.JH;
+  const { A, $, esc, nb, date, img, author, topicsOf, card, brand } = window.JH;
   const BODIES = window.JH_BODIES || {};
 
   const slug = new URLSearchParams(location.search).get("slug") || "muz-ktery-videl-budoucnost";
@@ -27,14 +27,14 @@
 
   const url = encodeURIComponent(`https://jednimhlasem.cz/clanky/${a.slug}`);
   const SHARE = [
-    ["facebook-logo", "Sdílet na Facebooku", `https://www.facebook.com/sharer/sharer.php?u=${url}`],
-    ["x-logo", "Sdílet na X", `https://x.com/intent/post?url=${url}`],
-    ["whatsapp-logo", "Poslat přes WhatsApp", `https://wa.me/?text=${url}`],
-    ["envelope-simple", "Poslat e-mailem", `mailto:?subject=${encodeURIComponent(a.title)}&body=${url}`],
+    ["facebook", "Sdílet na Facebooku", `https://www.facebook.com/sharer/sharer.php?u=${url}`],
+    ["x", "Sdílet na X", `https://x.com/intent/post?url=${url}`],
+    ["whatsapp", "Poslat přes WhatsApp", `https://wa.me/?text=${url}`],
+    ["ph:envelope-simple", "Poslat e-mailem", `mailto:?subject=${encodeURIComponent(a.title)}&body=${url}`],
   ];
   const share = `
     <div class="share" aria-label="Sdílet článek">
-      ${SHARE.map(([i, l, h]) => `<a href="${h}" target="_blank" rel="noopener" aria-label="${l}" title="${l}"><i class="ph ph-${i}"></i></a>`).join("")}
+      ${SHARE.map(([i, l, h]) => `<a href="${h}" target="_blank" rel="noopener" aria-label="${l}" title="${l}">${i.startsWith("ph:") ? `<i class="ph ph-${i.slice(3)}"></i>` : brand(i)}</a>`).join("")}
       <button type="button" class="share__copy" aria-label="Zkopírovat odkaz" title="Zkopírovat odkaz"><i class="ph ph-link-simple"></i></button>
     </div>`;
 

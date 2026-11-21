@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
-  <link rel="stylesheet" href="style.css?v=20261121b">
+  <link rel="stylesheet" href="style.css?v=20261121c">
 </head>
 <body>
   <a class="skip" href="#obsah">Přeskočit na obsah</a>
@@ -27,11 +27,9 @@
         </div>
       </div>
       <aside class="news" aria-labelledby="news-h">
-        <div class="sec-head sec-head--tight">
-          <h2 id="news-h">Aktuality</h2>
-          <a href="#" class="more">Všechny aktuality</a>
-        </div>
+        <div class="sec-head sec-head--tight"><h2 id="news-h">Aktuality</h2></div>
         <ol class="news__list" id="news"></ol>
+        <a href="#" class="more news__more">Všechny aktuality</a>
       </aside>
     </section>
 
@@ -57,7 +55,6 @@
       <aside class="side">
         <div class="pitva notch">
           <div class="pitva__head">
-            <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
             <h2>Mediální pitva</h2>
             <p>Co se do&nbsp;zprávy vešlo. A&nbsp;co zůstalo venku.</p>
           </div>
@@ -67,11 +64,7 @@
         <div class="follow">
           <h2>Sledujte nás</h2>
           <p>Každodenní komentáře a&nbsp;upozornění na&nbsp;obsah, který stojí za&nbsp;pozornost.</p>
-          <div class="follow__icons">
-            <a href="https://www.facebook.com/JednimHlasem" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-            <a href="https://x.com/" aria-label="X"><i class="ph ph-x-logo"></i></a>
-            <a href="https://www.instagram.com/" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-          </div>
+          <div class="follow__icons"></div>
         </div>
       </aside>
     </section>
@@ -91,16 +84,16 @@
           <em>Odhalte Gaza GenoLIE</em>
         </div>
         <div class="genolie__quote">
-          <strong>„Obvinění začalo 8.&nbsp;října“</strong>
+          <strong class="rotator" id="gg-rot">Obvinění z&nbsp;genocidy začala 8.&nbsp;října 2023</strong>
           <span>Jedním hlasem je českým partnerem projektu.</span>
         </div>
         <img src="../homepage-v2/img/genolie.png" alt="Gaza GenoLIE">
       </a>
       <div class="films">
-        <a class="notch" href="https://nazadocumentary.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/naza.jpg" alt="NAZA – The Real Story"></a>
-        <a class="notch" href="https://www.gazawood.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/gazawood.jpg" alt="Gazawood"></a>
+        <a href="https://nazadocumentary.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/naza.jpg" alt="NAZA – The Real Story"></a>
+        <a href="https://www.gazawood.com" target="_blank" rel="noopener"><img src="../homepage-v2/img/gazawood.jpg" alt="Gazawood"></a>
       </div>
-      <a class="denik notch" href="#">
+      <a class="denik" href="#">
         <span class="denik__name">Deník<br>Dagmar Langové</span>
         <span class="denik__entry"><strong id="denik-title">Dnes o&nbsp;dívce Núr</strong><span id="denik-date">10. 8. 2026</span></span>
         <img src="../homepage-v2/img/kamen.png" alt="">
@@ -111,7 +104,7 @@
   <footer class="ftr" id="ftr"></footer>
 
   <script src="../homepage-v2/clanky.js"></script>
-  <script src="shared.js?v=20261121b"></script>
-  <script src="app.js?v=20261121b"></script>
+  <script src="shared.js?v=20261121c"></script>
+  <script src="app.js?v=20261121c"></script>
 </body>
 </html>

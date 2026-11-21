@@ -12,14 +12,14 @@
 
   // ---------- Aktuality (ukázka) ----------
   const NEWS = [
-    ["10:40", "Dnes", "Redakce připravuje přehled reakcí českých politiků na dění v Gaze"],
-    ["16:05", "Včera", "Nová evropská zpráva o antisemitských incidentech na univerzitách"],
-    ["09:12", "Včera", "Proč titulek „Izrael útočí“ říká jen půlku příběhu"],
-    ["14:30", "17. listopadu", "V Praze proběhne debata o česko-izraelských vztazích, vstup volný"],
-    ["20:15", "16. listopadu", "Na sítích koluje sestřih videa vytržený z kontextu"],
+    ["2026-11-21", "Redakce připravuje přehled reakcí českých politiků na dění v Gaze"],
+    ["2026-11-20", "Nová evropská zpráva o antisemitských incidentech na univerzitách"],
+    ["2026-11-20", "Proč titulek „Izrael útočí“ říká jen půlku příběhu"],
+    ["2026-11-17", "V Praze proběhne debata o česko-izraelských vztazích, vstup volný"],
+    ["2026-11-16", "Na sítích koluje sestřih videa vytržený z kontextu"],
   ];
-  $("news").innerHTML = NEWS.map(([h, d, t]) => `
-    <li><a href="#"><span class="news__time"><b>${h}</b>${d}</span><span class="news__title">${nb(t)}</span></a></li>`).join("");
+  $("news").innerHTML = NEWS.map(([d, t]) => `
+    <li><a href="#"><time class="news__time" datetime="${d}">${+d.slice(8)}. ${+d.slice(5, 7)}.</time><span class="news__title">${nb(t)}</span></a></li>`).join("");
 
   // ---------- Mediální pitva ----------
   const pitva = A.filter((a) => a.tag === "Média a instituce" && a.img).slice(0, 4);
@@ -48,6 +48,29 @@
 
   // ---------- Témata ----------
   $("topics").innerHTML = TOPICS.map((t) => `<a class="topic" href="#"><i class="ph ph-${t.icon}" aria-hidden="true"></i><span>${t.name}</span></a>`).join("");
+
+  // ---------- Gaza GenoLIE: střídání hlášek z puzzle na gazagenolie.com/cs ----------
+  const GG = [
+    "Obvinění z genocidy začala 8. října 2023",
+    "Překrucování právního rámce „genocidy“",
+    "Válka proti Hamásu, nikoli proti Palestincům",
+    "Krevní pověra namířená proti všem Židům",
+    "Podvod s „válkou proti novinářům“",
+    "Strategie Hamásu založená na lidských štítech",
+    "Využívání nemocných dětí k vykonstruování hladomoru",
+    "Nové obvinění, stará kampaň",
+  ];
+  const rot = $("gg-rot");
+  rot.innerHTML = GG.map((t, i) => `<span${i ? ' aria-hidden="true"' : ' class="is-on"'}>${nb(t)}</span>`).join("");
+  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    const items = [...rot.children];
+    let cur = 0;
+    setInterval(() => {
+      items[cur].classList.remove("is-on"); items[cur].setAttribute("aria-hidden", "true");
+      cur = (cur + 1) % items.length;
+      items[cur].classList.add("is-on"); items[cur].removeAttribute("aria-hidden");
+    }, 3000);
+  }
 
   // ---------- Deník Dagmar Langové (nejnovější díl) ----------
   const den = A.find((a) => /deník dagmar/i.test(a.title));
