@@ -35,10 +35,10 @@
 
   // ---------- Rubriky ----------
   const RUBRIKY = [
+    { name: "Nejnovější", fn: () => true },
     { name: "Češi a Izrael", fn: (a) => a.cat === "cesi" },
     { name: "Studie a analýzy", fn: (a) => a.cat === "studie" },
     { name: "Tváře Izraele", fn: (a) => a.cat === "tvare" },
-    { name: "Nejnovější", fn: () => true },
   ];
   $("rubriky").innerHTML = RUBRIKY.map((r) => `
     <div class="sec">
