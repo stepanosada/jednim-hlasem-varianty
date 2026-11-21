@@ -21,7 +21,7 @@ window.JH = (() => {
   };
   A.forEach((a) => { if (LOCAL[a.slug]) a.img = LOCAL[a.slug]; });
   const img = (a, w) => (LOCAL[a.slug] || `${a.img}?scale-down-to=${w}`);
-  const author = (a) => (a.author === "Redakce JednímHlasem" ? "Redakce" : a.author);
+  const author = (a) => (/^Redakce/.test(a.author) ? "Redakce JH" : a.author);
   const firstSentence = (s) => s.split(/(?<=[.?!])\s/)[0];
 
   // 12 stálých témat a jejich klíčová slova podle Míny (Web témata.docx, 19. 11. 2026).
