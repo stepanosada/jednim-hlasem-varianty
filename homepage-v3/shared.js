@@ -35,7 +35,7 @@ window.JH = (() => {
     { id: "lide", name: "Lidé a\u00a0příběhy", icon: "users-three", kw: /osobnost|rozhovor|svědectví|odvah|spojen|osobní|příběh|tváře izraele/ },
     { id: "media", name: "Média a\u00a0instituce", icon: "monitor", kw: /medi|médi|zaujat|fact|osn\b|unrwa|ngo|lidskoprávní|amnesty|lékaři bez hranic|wikipedi|\bai\b|bbc|novinář|titulek/ },
     { id: "cesko", name: "Česko", icon: "castle-turret", kw: /česk|čech|praž|praha|třebíč|pardubic|masaryk|smetan/ },
-    { id: "antisemitismus", name: "Antisemitismus", icon: "warning", kw: /antisemit|antisionis|\bbds\b|incident|delegitimiz|démoniz|nenávist|bojkot|genocid|univerzit/ },
+    { id: "antisemitismus", name: "Antisemitismus", icon: "jh-hvezda", kw: /antisemit|antisionis|\bbds\b|incident|delegitimiz|démoniz|nenávist|bojkot|genocid|univerzit/ },
     { id: "sionismus", name: "Sionismus", icon: "flag-banner", kw: /sionis|sebeurčení/ },
     { id: "7-rijen", name: "7. říjen", icon: "calendar-x", kw: /7\. říj|masakr|přeživ|rukojm/ },
     { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "globe-hemisphere-east", kw: /gaz|západní břeh|judej|palestin|nakb|uprchl|mírov|abrahám|válk|příměří|anex/ },
