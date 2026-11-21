@@ -30,15 +30,15 @@ window.JH = (() => {
   const TOPICS = [
     { id: "historie", name: "Historie", icon: "book-open", kw: /dějin|šoa|holokaust|holocaust|vznik izraele|vznik státu|židé v arabských|pogrom|histori|mýt|stalin|sovět|19[0-4]\d/ },
     { id: "izrael", name: "Izrael – politika a\u00a0společnost", icon: "bank", kw: /izraelsk[áéý] politik|volb|kneset|netanjah|diplomac|zahraniční vztah|vlád|společnost/ },
-    { id: "zide-tradice", name: "Židé a\u00a0tradice", icon: "star-of-david", kw: /židovsk[áéý] identit|diaspor|komunit|židovsk[ýé] život|kultur|judaism|chanuk|šabat|svát|skaut|menor|tradic/ },
+    { id: "zide-tradice", name: "Židé a\u00a0tradice", icon: "jh-menora", kw: /židovsk[áéý] identit|diaspor|komunit|židovsk[ýé] život|kultur|judaism|chanuk|šabat|svát|skaut|menor|tradic/ },
     { id: "bezpecnost", name: "Bezpečnost a\u00a0terorismus", icon: "shield-check", kw: /\bidf\b|armád|hamás|hizballáh|írán|muslimské bratrstvo|islamis|teror|atentát|voják/ },
     { id: "lide", name: "Lidé a\u00a0příběhy", icon: "users-three", kw: /osobnost|rozhovor|svědectví|odvah|spojen|osobní|příběh|tváře izraele/ },
     { id: "media", name: "Média a\u00a0instituce", icon: "monitor", kw: /medi|médi|zaujat|fact|osn\b|unrwa|ngo|lidskoprávní|amnesty|lékaři bez hranic|wikipedi|\bai\b|bbc|novinář|titulek/ },
     { id: "cesko", name: "Česko", icon: "castle-turret", kw: /česk|čech|praž|praha|třebíč|pardubic|masaryk|smetan/ },
     { id: "antisemitismus", name: "Antisemitismus", icon: "jh-hvezda", kw: /antisemit|antisionis|\bbds\b|incident|delegitimiz|démoniz|nenávist|bojkot|genocid|univerzit/ },
-    { id: "sionismus", name: "Sionismus", icon: "flag-banner", kw: /sionis|sebeurčení/ },
-    { id: "7-rijen", name: "7. říjen", icon: "calendar-x", kw: /7\. říj|masakr|přeživ|rukojm/ },
-    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "globe-hemisphere-east", kw: /gaz|západní břeh|judej|palestin|nakb|uprchl|mírov|abrahám|válk|příměří|anex/ },
+    { id: "sionismus", name: "Sionismus", icon: "star-of-david", kw: /sionis|sebeurčení/ },
+    { id: "7-rijen", name: "7. říjen", icon: "heart-break", kw: /7\. říj|masakr|přeživ|rukojm/ },
+    { id: "konflikt", name: "Arabsko-izraelský konflikt", icon: "jh-mece", kw: /gaz|západní břeh|judej|palestin|nakb|uprchl|mírov|abrahám|válk|příměří|anex/ },
     { id: "veda", name: "Věda a\u00a0inovace", icon: "flask", kw: /objev|věd|nobel|medicín|technolog|technion|inovac|výzkum|klimat/ },
   ];
   const T = Object.fromEntries(TOPICS.map((t) => [t.id, t]));
