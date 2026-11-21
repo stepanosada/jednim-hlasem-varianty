@@ -97,7 +97,6 @@
   const related = [...same, ...pool].filter((x, i, arr) => arr.indexOf(x) === i);
   $("related").innerHTML = related.slice(0, 3).map((x) => card(x, "small")).join("");
   $("more-h").textContent = `Další z tématu ${main.name.replace(/ /g, " ")}`;
-  $("more-all").textContent = `Všechny články z tématu ${main.name.replace(/ /g, " ")}`;
   $("more").innerHTML = related.slice(3, 7).map((x) => card(x, "small")).join("");
 
   // Ukazatel postupu čtení.
