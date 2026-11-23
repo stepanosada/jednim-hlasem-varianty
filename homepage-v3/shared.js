@@ -89,7 +89,7 @@ window.JH = (() => {
   const NAV = [
     { label: "Články", sub: ["Nejnovější", "Doporučujeme", "Češi a Izrael", "Studie a analýzy", "Tváře Izraele", "Mediální pitva"] },
     { label: "Témata", sub: TOPICS.map((t) => [t.name, t.icon]), wide: true },
-    { label: "Antisemitismus", sub: ["Co je antisemitismus", "Proměny v čase", "Nový antisemitismus", "Kritika, nebo nenávist?"] },
+    { label: "Antisemitismus" },
     { label: "O nás" },
     { label: "Zapojte se" },
   ];
