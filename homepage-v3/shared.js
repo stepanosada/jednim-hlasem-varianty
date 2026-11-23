@@ -29,7 +29,7 @@ window.JH = (() => {
   // ve Frameru ho nahradí ruční výběr redakce.
   const TOPICS = [
     { id: "historie", name: "Historie", icon: "book-open", kw: /dějin|šoa|holokaust|holocaust|vznik izraele|vznik státu|židé v arabských|pogrom|histori|mýt|stalin|sovět|19[0-4]\d/ },
-    { id: "izrael", name: "Izrael – politika a\u00a0společnost", icon: "bank", kw: /izraelsk[áéý] politik|volb|kneset|netanjah|diplomac|zahraniční vztah|vlád|společnost/ },
+    { id: "izrael", name: "Izrael – politika a\u00a0společnost", icon: "jh-volby", kw: /izraelsk[áéý] politik|volb|kneset|netanjah|diplomac|zahraniční vztah|vlád|společnost/ },
     { id: "zide-tradice", name: "Židé a\u00a0tradice", icon: "jh-menora", kw: /židovsk[áéý] identit|diaspor|komunit|židovsk[ýé] život|kultur|judaism|chanuk|šabat|svát|skaut|menor|tradic/ },
     { id: "bezpecnost", name: "Bezpečnost a\u00a0terorismus", icon: "shield-check", kw: /\bidf\b|armád|hamás|hizballáh|írán|muslimské bratrstvo|islamis|teror|atentát|voják/ },
     { id: "lide", name: "Lidé a\u00a0příběhy", icon: "users-three", kw: /osobnost|rozhovor|svědectví|odvah|spojen|osobní|příběh|tváře izraele/ },
