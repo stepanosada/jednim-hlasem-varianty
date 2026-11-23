@@ -418,3 +418,8 @@ main { padding-bottom: var(--section); }
 .pitva__head h2 { display: flex; align-items: flex-end; gap: 2px; }
 .pitva__ico { width: 76px; height: auto; flex: none; margin-bottom: 5px; }
 @media (max-width: 809.98px) { .pitva__ico { width: 66px; margin-bottom: 4px; } }
+
+/* Šipky v odkazech „Všechny…“: klasická outline šipka (Lucide). Zobáčky jen u Klíčového tématu. */
+:is(.sec-foot .more, .news__more, .pitva__more) .arr { width: 14px; height: 14px; flex: none; margin-top: -2px; transition: transform .25s cubic-bezier(.2, .7, .2, 1); }
+:is(.sec-foot .more, .news__more, .pitva__more):hover .arr { transform: translateX(3px); }
+.ftr::before { display: none; }

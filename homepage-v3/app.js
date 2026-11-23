@@ -44,7 +44,7 @@
     <div class="sec">
       <div class="sec-head"><h2>${r.name}</h2></div>
       ${pick(r.fn, 1).map((a) => card(a, "mid")).join("")}
-      <div class="sec-foot"><a href="#" class="more"><span>Všechny články</span><i class="ph ph-arrow-right" aria-hidden="true"></i></a></div>
+      <div class="sec-foot"><a href="#" class="more"><span>Všechny články</span><svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
     </div>`).join("");
 
   // ---------- Témata ----------
